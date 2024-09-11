@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login</title>
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- Custom CSS -->
+   <style>
+      body {
+         background-image: url('C:/xampp/htdocs/grocery store/images/home-bg.jpg');
+         background-size: cover;
+         background-position: center;
+      }
+      .form-container {
+         margin-top: 100px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+      }
+      .tab-content {
+         display: none;
+      }
+      .active {
+         display: block;
+      }
+      .message {
+         background-color: #f8d7da;
+         color: #721c24;
+         padding: 10px;
+         border-radius: 5px;
+         margin-bottom: 10px;
+         position: relative;
+      }
+      .message span {
+         margin-right: 20px;
+      }
+      .message i {
+         position: absolute;
+         top: 5px;
+         right: 5px;
+         cursor: pointer;
+      }
+   </style>
+</head>
+<body>
+
+<div class="container">
+   <h1 align="center"><marquee>ONLINE GROCERY MANAGEMENT SYSTEM</marquee></h1>
+
+   <section class="form-container">
+      <ul class="nav nav-tabs">
+         <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#userTab">User Login</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#adminTab">Admin Login</a>
+         </li>
+      </ul>
+      <div class="tab-content">
+         <div id="userTab" class="tab-pane fade show active">
+            <form id="userLoginForm">
+               <h3>User Login</h3>
+               <input type="email" name="email" class="form-control mb-2" placeholder="Enter your email" required>
+               <input type="password" name="pass" class="form-control mb-2" placeholder="Enter your password" required>
+               <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+         </div>
+         <div id="adminTab" class="tab-pane fade">
+            <form id="adminLoginForm">
+               <h3>Admin Login</h3>
+               <input type="email" name="email" class="form-control mb-2" placeholder="Enter your email" required>
+               <input type="password" name="pass" class="form-control mb-2" placeholder="Enter your password" required>
+               <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+         </div>
+      </div>
+
+      <div id="messageContainer"></div>
+   </section>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script>
+   // JavaScript for handling form submission - User Login
+   document.getElementById('userLoginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      var email = document.querySelector('#userLoginForm input[name="email"]').value;
+      var password = document.querySelector('#userLoginForm input[name="pass"]').value;
+
+      // You can perform further validation if needed
+
+      // Submit the form to login.php or handle the login logic here
+   });
+
+   // JavaScript for handling form submission - Admin Login
+   document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      var email = document.querySelector('#adminLoginForm input[name="email"]').value;
+      var password = document.querySelector('#adminLoginForm input[name="pass"]').value;
+
+      // You can perform further validation if needed
+
+      // Submit the form to login.php or handle the login logic here
+   });
+
+   // Display message function
+   function showMessage(message, isError) {
+      var messageContainer = document.getElementById('messageContainer');
+      var messageDiv = document.createElement('div');
+      messageDiv.classList.add('message');
+      messageDiv.classList.add(isError ? 'alert-danger' : 'alert-success');
+      messageDiv.innerHTML = '<span>' + message + '</span><i class="fas fa-times" onclick="this.parentElement.remove();"></i>';
+      messageContainer.appendChild(messageDiv);
+   }
+</script>
+
+</body>
+</html>
