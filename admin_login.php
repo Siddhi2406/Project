@@ -105,7 +105,7 @@ if(!isset($user_id)){
     }
 
     // Check if username and password match admin credentials
-    if (username === 'rutuja' && password === 'rutuja123') {
+    if (username === 'siddhi' && password === 'siddhi123') {
 
       alert('Login successful!');
       window.location.replace("admin_page.php");
